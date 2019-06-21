@@ -277,7 +277,6 @@ set(bro_SRCS
     IntSet.cc
     IP.cc
     IPAddr.cc
-    List.cc
     Reporter.cc
     NFA.cc
     Net.cc
