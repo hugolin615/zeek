@@ -129,7 +129,6 @@ public:
 	// helper functions for iterating over queue
 	int front() const	{ return head; }
 	int back() const	{ return tail; }
-	void incr(int& index)	{ index < max_entries ? ++index : index = 0; }
 
 	// Iterator support
 	using iterator = QueueIterator<T>;
@@ -282,11 +281,5 @@ public:
 
 	T* operator[](int i) const { return BaseQueue<T*>::operator[](i); }
 	};
-
-// Macro to visit each queue element in turn.
-#define loop_over_queue(queue, iterator) \
-	int iterator; \
-	for ( iterator = (queue).front(); iterator != (queue).back(); \
-		(queue).incr(iterator) )
 
 #endif /* queue_h */
