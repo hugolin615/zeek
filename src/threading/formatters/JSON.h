@@ -4,6 +4,7 @@
 #define THREADING_FORMATTERS_JSON_H
 
 #include "../Formatter.h"
+#include "3rdparty/json.hpp"
 
 namespace threading { namespace formatter {
 
@@ -27,9 +28,10 @@ public:
 	                      threading::Value** vals) const override;
 	threading::Value* ParseValue(const string& s, const string& name, TypeTag type, TypeTag subtype = TYPE_ERROR) const override;
 
-	void SurroundingBraces(bool use_braces);
-
 private:
+
+	nlohmann::json BuildJSON(Value* val, const string& name = "") const;
+
 	TimeFormat timestamps;
 	bool surrounding_braces;
 };
